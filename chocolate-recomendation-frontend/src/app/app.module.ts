@@ -6,7 +6,10 @@ import { AppComponent } from "./app.component";
 import { MaterialModule } from "./material/material.module";
 import { HospitalModule } from "./modules/hospital/hospital.module";
 import { PagesModule } from "./modules/pages/pages.module";
+import { AdminModule } from "./modules/admin/admin.module";
+import { RegularModule } from "./modules/regular/regular.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     MaterialModule,
     PagesModule,
-    HospitalModule
+    HospitalModule,
+    AdminModule,
+    RegularModule
   ],
   providers: [],
   bootstrap: [AppComponent]

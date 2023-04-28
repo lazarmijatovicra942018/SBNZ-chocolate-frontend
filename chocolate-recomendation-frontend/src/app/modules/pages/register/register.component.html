@@ -1,0 +1,56 @@
+<body class="background-image">
+    <form class="container">
+  
+         
+        <mat-form-field class="example-full-width" style="color: white;">
+          <input matInput placeholder="Email"  [formControl]="emailFormControl" [(ngModel)]="user.email">
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field><br>
+   
+        <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Password" type="password" [formControl]="requiredPasswordControl" [(ngModel)]="user.password">
+            <mat-error *ngIf="requiredPasswordControl.hasError('required')">
+                Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Confirm password" type="password" [formControl]="requiredConfirmationPasswordControl" [(ngModel)]="confirmationPass">
+            <mat-error *ngIf="requiredConfirmationPasswordControl.hasError('required')">
+                Confirmation password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Name" [formControl]="requiredNameControl"[(ngModel)]="user.name">
+            <mat-error *ngIf="requiredNameControl.hasError('required')">
+                Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+    
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Surname" [formControl]="requiredSurnameControl" [(ngModel)]="user.surname">
+            <mat-error *ngIf="requiredSurnameControl.hasError('required')">
+                Surname is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+
+          <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Phone number" [formControl]="requiredPhoneNumberControl" [(ngModel)]="user.phoneNum">
+            <mat-error *ngIf="requiredSurnameControl.hasError('required')">
+                Phone number is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+
+
+          <button mat-stroked-button (click)="registerUser()"> 
+            Submit
+        </button>
+    
+    </form> 
+    </body>

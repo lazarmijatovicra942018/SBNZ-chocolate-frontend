@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RegularComponent } from './regular/regular.component';
+import { DiscountedChocolatesComponent } from './discounted-chocolates/discounted-chocolates.component';
 import { AppRoutingModule } from 'src/app/app-routing.module'; 
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { PagesComponent } from './pages/pages.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -19,15 +18,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
-import { RegisterComponent } from './register/register.component';
-
-
 const routes: Routes = [
   {
-    path: '', component: PagesComponent, children: [
-      { path: 'home', component: HomeComponent },
-      { path: 'register', component: RegisterComponent},
-      { path: 'login', component: LoginComponent},
+    path: '', component: RegularComponent, children: [
+      { path: 'discounted/chocolates', component: DiscountedChocolatesComponent },
+      //{ path: 'register', component: RegisterComponent},
+      //{ path: 'login', component: LoginComponent},
       //{ path: 'unauthorized', component: UnauthorComponent},
 
     ]
@@ -37,17 +33,12 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    LoginComponent,
-    PagesComponent,
-    
-    RegisterComponent,
+    RegularComponent,
+    DiscountedChocolatesComponent
   ],
   imports: [
     CommonModule,
-    AppRoutingModule,
-    CommonModule,
-    MatTableModule,
+       MatTableModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
@@ -65,9 +56,10 @@ const routes: Routes = [
     MatRadioModule,
     MatDatepickerModule,
     MatToolbarModule
-  ],
+  ]
+  ,
   providers: [
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
   ]
 })
-export class PagesModule { }
+export class RegularModule { }

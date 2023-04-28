@@ -1,83 +1,93 @@
 .container {
-    width: 60%;
+    width: 53%;
     margin: auto;
     margin-top: 20px;
     border-radius: 3px;
-    border: #DCD6CC 1px solid;
+    border: #DCD6CC 2px slategray;
     background-color: white;
-}
-
-table {
-    width: 100%;
-}
-
-.home {
-    background-color: transparent;
-    color: white;
-    border-color: transparent;
+    border-color:  rgb(35, 104, 233);
+    border-width: 3px;
+    border-radius: 20px;
+    padding: 5px;
+    background-color: rgb(153, 189, 198);
   }
-
-.mat-toolbar {
+  
+  .mat-toolbar {
     background-color: rgb(4, 92, 113);
   }
-
-.table-title {
+  
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  table {
+    width: 100%;
+    background-color: gray
+  }
+  
+  .table-title {
     padding-bottom: 20px;
     padding-top: 20px;
     padding-left: 20px;
     font-size: 20px;
-
-}
-
-.cell-center {
+  
+  }
+  
+  .cell-center {
     text-align: center;
-}
-
-.clickable:hover {
+  }
+  
+  .clickable:hover {
     font-weight: bold;
     cursor: pointer;
-}
-
-.add-button {
+  }
+  
+  .add-button {
     margin: 10px 20px 10px 10px;
     color: black;
     background-color: #edece5;
     float: right;
-}
-
-.table-header {
+  }
+  
+  .table-header {
     display: flex;
-}
-
-p {
+  }
+  
+  p {
     float: left;
     margin-right: auto;
-}
-
-.field {
+  }
+  
+  .field {
     width: 50%;
     margin: auto;
     background-color: rgb(160, 159, 159);
     padding: 10px;
-}
-
-.search {
+  }
+  
+  .search {
     width: 40%;
     margin-left: 157px;
     margin-top: 300px;
     display: flex;
     background-color: rgb(160, 159, 159);
-}
-
-.filter {
+  }
+  
+  .filter {
     width: 28%;
     margin-left: 20px;
     margin-top: 300px;
     display: flex;
     background-color: rgb(160, 159, 159);
-}
-
-.button {
+  }
+  
+  .button {
     width: 100%;
     margin-left: 90px;
     margin-top: 315px;
@@ -85,33 +95,38 @@ p {
     margin-right: 90px;
     background-color: rgb(160, 159, 159);
     border-radius: 10px;
-}
-
-.line {
+  }
+  
+  .line {
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 20px;
     margin-bottom: auto;
     background-color: rgb(160, 159, 159);;
-}
-
-.filter-search {
+  }
+  
+  .filter-search {
     display: flex;
     margin-left: 150px;
     margin-right: 150px;
-}
-
-.nameBtn {
+  }
+  
+  .nameBtn {
     margin-left: 70px;
-}
-
-.gradeBtn {
+  }
+  
+  .gradeBtn {
     margin-left: 670px;
-}
-
-/*
-.bg {
-    background-image: url("/pictures/chocolate.jpg");
+  }
+  
+  .logoutButton {
+    position: absolute;
+    right: 15px;
+  }
+  
+  /*
+  .bg {
+    background-image: url("/assets/images/plavi.jpg");
     height: 100vh;
     width: 100vw;
     object-fit: fill;
@@ -119,4 +134,9 @@ p {
     background-repeat: no-repeat;
     background-size: cover;
   }
-*/
+  */
+  .home {
+    background-color: transparent;
+    color: white;
+    border-color: transparent;
+  }

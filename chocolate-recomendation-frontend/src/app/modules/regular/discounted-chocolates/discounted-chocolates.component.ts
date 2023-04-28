@@ -6,15 +6,16 @@ import { FormControl, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 
 
+
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-discounted-chocolates',
+  templateUrl: './discounted-chocolates.component.html',
+  styleUrls: ['./discounted-chocolates.component.css']
 })
-export class HomeComponent implements OnInit {
+export class DiscountedChocolatesComponent implements OnInit {
 
   public dataSource = new MatTableDataSource<Chocolate>();
-  public displayedColumns = ['name' , 'manufacturer' , 'price' , 'discount' ,'ammount', 'ingridiants'];
+  public displayedColumns = ['name' , 'manufacturer' , 'price' ,'priceAll', 'discount' ,'ammount', 'ingrediants'];
   
   
   constructor(private chocolateService: ChocolateService, private router: Router) { }
@@ -26,13 +27,6 @@ export class HomeComponent implements OnInit {
 
   public loadChocolates(): void {
       this.chocolateService.getChocolates().subscribe(res => {
-        
-        
-        
-      
-
-
-
         this.dataSource.data = res;
         
         for(const c of this.dataSource.data){
@@ -42,17 +36,35 @@ export class HomeComponent implements OnInit {
               }else{
                 c.allIngrediants = ingrediant
             }    
-            });
-          
-          
+            });  
         }
-        
-
-
-       
       });
         
 
   }
+
+  public getDiscount(event: any) {
+      if(event.target.value<0){
+        alert("Ammount must be positive number")
+        event.target.value  = null
+      }else{
+
+      this.chocolateService.getDiscountedChocolatesWithAmmount(event.target.value).subscribe(res => {
+        this.dataSource.data = res;
+        for(const c of this.dataSource.data){
+            c.ingrediants.forEach((ingrediant: string) => {
+              if(c.allIngrediants!= null){
+                c.allIngrediants = c.allIngrediants + ' , '+ ingrediant 
+              }else{
+                c.allIngrediants = ingrediant
+            }    
+            });  
+        }
+      });
+    }
+  }
+
+
+
 
 }

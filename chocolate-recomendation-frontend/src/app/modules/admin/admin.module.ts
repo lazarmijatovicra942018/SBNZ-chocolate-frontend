@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AdminComponent } from './admin/admin.component';
 import { AppRoutingModule } from 'src/app/app-routing.module'; 
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { PagesComponent } from './pages/pages.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -18,30 +16,24 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
-import { RegisterComponent } from './register/register.component';
-
+import { AddChocolateComponent } from './add-chocolate/add-chocolate.component';
 
 const routes: Routes = [
   {
-    path: '', component: PagesComponent, children: [
-      { path: 'home', component: HomeComponent },
-      { path: 'register', component: RegisterComponent},
-      { path: 'login', component: LoginComponent},
+    path: '', component: AdminComponent, children: [
+      { path: 'add/chocolate', component: AddChocolateComponent },
+      //{ path: 'register', component: RegisterComponent},
+      //{ path: 'login', component: LoginComponent},
       //{ path: 'unauthorized', component: UnauthorComponent},
 
     ]
   }
 ];
 
-
 @NgModule({
   declarations: [
-    HomeComponent,
-    LoginComponent,
-    PagesComponent,
-    
-    RegisterComponent,
+    AdminComponent,
+    AddChocolateComponent
   ],
   imports: [
     CommonModule,
@@ -70,4 +62,4 @@ const routes: Routes = [
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
   ]
 })
-export class PagesModule { }
+export class AdminModule { }

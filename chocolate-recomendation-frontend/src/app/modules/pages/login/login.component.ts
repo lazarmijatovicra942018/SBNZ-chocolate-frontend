@@ -22,7 +22,12 @@ export class LoginComponent implements OnInit {
   public login() {
     this.userService.loginUser(this.data).subscribe(res => {
         if(res.email){
-          alert("Brao")
+          if(res.userType =='ADMINISTRATOR'){ 
+            this.router.navigate(['/add/chocolate']);
+          }else if(res.userType =='REGISTERED_USER'){ 
+            this.router.navigate(['/discounted/chocolates']);
+          } 
+
         }else{
           alert(res)
         }
