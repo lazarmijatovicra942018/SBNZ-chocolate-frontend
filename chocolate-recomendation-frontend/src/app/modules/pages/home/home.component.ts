@@ -14,7 +14,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class HomeComponent implements OnInit {
 
   public dataSource = new MatTableDataSource<Chocolate>();
-  public displayedColumns = ['name' , 'manufacturer' , 'price' , 'discount' ,'ammount', 'ingridiants'];
+  public displayedColumns = ['name' , 'manufacturer' , 'price' , 'ingridiants'];
   
   
   constructor(private chocolateService: ChocolateService, private router: Router) { }

@@ -26,8 +26,8 @@ export class DiscountedChocolatesComponent implements OnInit {
 
 
   public loadChocolates(): void {
-      this.chocolateService.getChocolates().subscribe(res => {
-        this.dataSource.data = res;
+    this.chocolateService.getDiscountedChocolatesWithAmmount(0).subscribe(res => {
+      this.dataSource.data = res;
         
         for(const c of this.dataSource.data){
             c.ingrediants.forEach((ingrediant: string) => {
@@ -48,6 +48,7 @@ export class DiscountedChocolatesComponent implements OnInit {
         alert("Ammount must be positive number")
         event.target.value  = null
       }else{
+      
 
       this.chocolateService.getDiscountedChocolatesWithAmmount(event.target.value).subscribe(res => {
         this.dataSource.data = res;

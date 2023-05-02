@@ -23,7 +23,12 @@ export class RegisterComponent implements OnInit {
       if (this.isInputValid()) {
       if (this.isPassConfirmed()) {
         this.userService.registerUser(this.user).subscribe(res => {
+          if(res.email){
           alert("You have successfully registered!");
+          }else{
+            alert(res)
+          }
+          
         })
       }
       else
