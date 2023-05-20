@@ -145,3 +145,44 @@
     color: black;
   }
   
+/*
+
+  .rating .far.fa-star {
+    color: #c0c0c0; /* Change the color of the empty star */
+  /*}
+
+  .fas.fa-star-quarter {
+    position: relative;
+    overflow: hidden;
+    width: 0.8em; /* Adjust the width to control the size of the quarter star */
+   /* height: 1em; /* Adjust the height to control the size of the quarter star */
+   /* color: #FFD700; /* Change the color of the quarter star */
+  /*}
+  
+  .fas.fa-star-quarter:before {
+    content: "\f006";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0 0, 0 100%, 75% 100%, 75% 0); /* Clip the icon to show only a quarter */
+ /* }
+  */
+  .star {
+    display: inline-block;
+    position: relative;
+    font-size: 100px;
+    color: #ddd;
+  }
+  
+  .star:after {
+    font-family: FontAwesome;
+    content: "\f005";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60%;
+    overflow: hidden;
+    color: #f80;
+  }

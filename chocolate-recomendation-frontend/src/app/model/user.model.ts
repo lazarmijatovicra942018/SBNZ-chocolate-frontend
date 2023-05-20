@@ -8,6 +8,7 @@ export class User{
     phoneNum: string = ''; 
     userType: any = null;
     userRank: any = null;
+    firstTimeLogin: boolean = false;
     
 
     public constructor(obj?: any) {
@@ -19,7 +20,7 @@ export class User{
             this.password = obj.password;
             this.email = obj.email;
             this.phoneNum = obj.phoneNum;
-            
+            this.firstTimeLogin = obj.firstTimeLogin;
         }
     }
 }

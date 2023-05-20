@@ -17,11 +17,14 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { IngredinatsPreferanceComponent } from './ingredinats-preferance/ingredinats-preferance.component';
 
 const routes: Routes = [
   {
     path: '', component: RegularComponent, children: [
       { path: 'discounted/chocolates', component: DiscountedChocolatesComponent },
+      { path: 'ingrediants/preferance', component: IngredinatsPreferanceComponent },
+      
       //{ path: 'register', component: RegisterComponent},
       //{ path: 'login', component: LoginComponent},
       //{ path: 'unauthorized', component: UnauthorComponent},
@@ -34,7 +37,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     RegularComponent,
-    DiscountedChocolatesComponent
+    DiscountedChocolatesComponent,
+    IngredinatsPreferanceComponent
   ],
   imports: [
     CommonModule,

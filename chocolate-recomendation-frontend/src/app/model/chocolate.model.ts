@@ -1,13 +1,16 @@
 export class Chocolate {
 
     name: string = '';
-    ingrediants : string[] = [];
-    allIngrediants: string = ''
-
+    ingredients : string[] = [];
+    allIngredients: string = ''
     manufacturer: string = '';
     price: number = 0;
     discount: number = 0;
     ammount: number = 0;
+    grade: number = 0;
+    myGrade: number = 0;
+    
+    
 
 
 
@@ -16,14 +19,14 @@ export class Chocolate {
         if (obj) {
             alert("oj")
             this.name = obj.name;
-            this.ingrediants = obj.ingrediants;
+            this.ingredients = obj.ingrediants;
             this.manufacturer = obj.password;
             this.price = obj.price;
             this.discount = obj.discount;
             this.ammount = obj.ammount;
-            this.allIngrediants = obj.allIngrediants;    
-                        
-        
+            this.allIngredients = obj.allIngrediants;    
+            this.grade = obj.grade;       
+            this.myGrade = obj.grade;
         }
     }
 

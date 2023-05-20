@@ -1,0 +1,24 @@
+
+<body class="background-image">
+    <form class="container">
+      <h2>Faovourite ingredients :</h2>
+      <div class="checkbox-container">
+        <ul>
+          <li *ngFor="let item of favouriteList">
+            <input type="checkbox" [(ngModel)]="item.checked" (change)="onFavouriteCheckboxChange(item)" id="{{ 'checkbox_' + item.value + item.checked}}" name="{{ 'checkbox_' + item.value +item.checked}}">
+            <label for="{{ 'checkbox_' + item.value }}">{{ item.value }}</label>
+          </li>
+        </ul>
+      </div>
+      <h2>Disliked ingredients :</h2>
+      <div class="checkbox-container">
+        <ul>
+          <li *ngFor="let item of dislikedList">
+            <input type="checkbox" [(ngModel)]="item.checked" (change)="onDislikedCheckboxChange(item)" id="{{ 'checkbox_' + item.value }}" name="{{ 'checkbox_' + item.value }}">
+            <label for="{{ 'checkbox_' + item.value }}">{{ item.value }}</label>
+          </li>
+        </ul>
+      </div>
+    </form>
+  </body>
+  

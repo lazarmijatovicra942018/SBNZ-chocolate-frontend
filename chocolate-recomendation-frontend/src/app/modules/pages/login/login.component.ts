@@ -22,6 +22,8 @@ export class LoginComponent implements OnInit {
   public login() {
     this.userService.loginUser(this.data).subscribe(res => {
         if(res.email){
+
+        
           if(res.userType =='ADMINISTRATOR'){ 
             this.router.navigate(['/add/chocolate']);
           }else if(res.userType =='REGISTERED_USER'){ 

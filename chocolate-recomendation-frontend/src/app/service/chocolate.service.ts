@@ -23,6 +23,12 @@ export class ChocolateService {
     return this.http.get<Chocolate[]>(this.apiHost + 'chocolates/discount', {headers: this.headers});
   }
 
+  getAllIngredients(): Observable<string[]> {
+    return this.http.get<string[]>(this.apiHost + 'chocolates/ingredients', {headers: this.headers});
+  }
+
+
+
   
   getDiscountedChocolatesWithAmmount(ammount : number): Observable<Chocolate[]> {
     return this.http.get<Chocolate[]>(this.apiHost + 'chocolates/discount/'+ammount, {headers: this.headers});
