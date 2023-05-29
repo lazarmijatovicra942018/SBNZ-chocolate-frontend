@@ -186,3 +186,8 @@
     overflow: hidden;
     color: #f80;
   }
+
+  .no-click {
+    pointer-events: none;
+  }
+  

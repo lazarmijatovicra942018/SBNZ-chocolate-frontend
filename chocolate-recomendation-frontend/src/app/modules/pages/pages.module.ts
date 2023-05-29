@@ -20,6 +20,9 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { RegisterComponent } from './register/register.component';
+import { ChocolateDetailsComponent } from './chocolate-details/chocolate-details.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 const routes: Routes = [
@@ -42,6 +45,7 @@ const routes: Routes = [
     PagesComponent,
     
     RegisterComponent,
+          ChocolateDetailsComponent,
   ],
   imports: [
     CommonModule,
@@ -64,7 +68,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     MatRadioModule,
     MatDatepickerModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDialogModule,
   ],
   providers: [
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}

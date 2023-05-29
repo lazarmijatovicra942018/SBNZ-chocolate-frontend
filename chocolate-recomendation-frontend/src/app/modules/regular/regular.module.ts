@@ -18,6 +18,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { IngredinatsPreferanceComponent } from './ingredinats-preferance/ingredinats-preferance.component';
+import { ChocolateDetailsComponent } from './chocolate-details/chocolate-details.component';
 
 const routes: Routes = [
   {
@@ -38,7 +39,8 @@ const routes: Routes = [
   declarations: [
     RegularComponent,
     DiscountedChocolatesComponent,
-    IngredinatsPreferanceComponent
+    IngredinatsPreferanceComponent,
+    ChocolateDetailsComponent
   ],
   imports: [
     CommonModule,

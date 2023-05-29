@@ -12,10 +12,8 @@ export class RegularComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) { }
 
-
   ngOnInit(): void {
   }
-
 
   logout(){
     this.userService.logoutUser()
@@ -24,4 +22,5 @@ export class RegularComponent implements OnInit {
   public home(){
     this.router.navigate(['discounted/chocolates']);
   }
+
 }

@@ -1,0 +1,58 @@
+<body class="background-image">
+    <form>
+      <h1><b>Chocolate Details:</b></h1>
+  
+      <div class="container">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <span id="name" class="field-value">{{ chocolate.name }}</span>
+        </div>
+  
+        <div class="form-group">
+          <label for="manufacturer">Manufacturer:</label>
+          <span id="manufacturer" class="field-value">{{ chocolate.manufacturer }}</span>
+        </div>
+  
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <span id="price" class="field-value">{{ chocolate.price }}</span>
+        </div>
+  
+        <div class="form-group">
+          <label for="ingredients">Ingredients:</label>
+          <span id="ingredients" class="field-value">{{ chocolate.allIngredients }}</span>
+        </div>
+        
+        <div class="form-group">
+          <label for="weight">Weight:</label>
+          <span id="weight" class="field-value">{{ chocolate.weight }}</span>
+        </div>
+        
+        <div class="form-group">
+          <label for="sugarContent">Sugar Content:</label>
+          <span id="sugarContent" class="field-value">{{ chocolate.sugarContent }}</span>
+        </div>
+        
+
+        <div class="form-group">
+          <label for="nutriScore">Nutri Score:</label>
+          <span id="nutriScore" class="field-value">{{chocolate.nutriScore}}</span>
+        </div>
+        <div class="form-group">
+          <label for="grade">Calories:</label>
+          <span id="grade" class="field-value">{{chocolate.calories}}</span>
+        </div>
+
+        <div class="form-group">
+          <label for="grade">Grade:</label>
+          <span id="grade" class="field-value">{{ chocolate.grade }}</span>
+        </div>
+  
+      </div>
+  
+      <div class="button-container">
+        <button mat-button mat-dialog-close (click)="close()">Cancel</button>
+      </div>
+    </form>
+  </body>
+  

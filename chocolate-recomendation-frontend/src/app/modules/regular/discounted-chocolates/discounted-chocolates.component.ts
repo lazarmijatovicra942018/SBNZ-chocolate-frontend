@@ -4,6 +4,8 @@ import { ChocolateService } from 'src/app/service/chocolate.service';
 import { Chocolate } from "../../../model/chocolate.model";
 import { FormControl, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ChocolateDetailsComponent } from '../chocolate-details/chocolate-details.component';
 
 
 
@@ -16,21 +18,23 @@ export class DiscountedChocolatesComponent implements OnInit {
 
   public dataSource = new MatTableDataSource<Chocolate>();
   public displayedColumns = ['name', 'manufacturer', 'price', 'priceAll', 'discount', 'ammount', 'ingredients' , 'grade', 'mygrade'];
-  stars: number[] = [];
-  emptyStars: number[] = [1, 2, 3, 4, 5];
+  public disable: boolean = false;
+  public amount : number = 0;
 
-  constructor(private chocolateService: ChocolateService, private router: Router) { }
+  constructor( public dialog: MatDialog ,private chocolateService: ChocolateService, private router: Router) { }
 
   ngOnInit(): void {
-    this.loadChocolates()
+    this.loadChocolatesWithAmmount(this.amount);
   }
 
+ 
 
-  public loadChocolates(): void {
-    this.chocolateService.getDiscountedChocolatesWithAmmount(0).subscribe(res => {
+  public loadChocolatesWithAmmount(ammount: number): void {
+    this.chocolateService.getDiscountedChocolatesWithAmmount(ammount).subscribe(res => {
       this.dataSource.data = res;
 
       for (const c of this.dataSource.data) {
+        this.setStars(c);
         c.ingredients.forEach((ingredient: string) => {
           if (c.allIngredients != null) {
             c.allIngredients = c.allIngredients + ' , ' + ingredient
@@ -38,35 +42,22 @@ export class DiscountedChocolatesComponent implements OnInit {
             c.allIngredients = ingredient
           }
         });
-
-
       }
     });
-
-
   }
 
   public getDiscount(event: any) {
+    
     if (event.target.value < 0) {
       alert("Ammount must be positive number")
       event.target.value = null
     } else {
-
-
-      this.chocolateService.getDiscountedChocolatesWithAmmount(event.target.value).subscribe(res => {
-        this.dataSource.data = res;
-        for (const c of this.dataSource.data) {
-          c.ingredients.forEach((ingredient: string) => {
-            if (c.allIngredients != null) {
-              c.allIngredients = c.allIngredients + ' , ' + ingredient
-            } else {
-              c.allIngredients = ingredient
-            }
-          });
-
-
-        }
-      });
+      if(!event.target.value){
+        this.amount = 0;
+      }else{
+      this.amount = event.target.value;
+      }
+      this.loadChocolatesWithAmmount(this.amount);
     }
   }
 
@@ -88,44 +79,61 @@ export class DiscountedChocolatesComponent implements OnInit {
   }
 
   setGrade(chocolate: any, star: number): void {
+    this.disable = true;
     chocolate.myGrade = star;
-    this.setStars(chocolate)
+    this.chocolateService.gradeChocolate(chocolate).subscribe(res =>
+    this.loadChocolatesWithAmmount(this.amount)
+    );
+   // this.setStars(chocolate)
+    
 
   }
 
-
-  setStarsForEmpty(emtyStar: number): void{
-    if((this.stars.length+ emtyStar)==1){
-      this.stars= [1];
-    }else if((this.stars.length+ emtyStar)==2){
-      this.stars= [1, 2];
-    }else if((this.stars.length+ emtyStar)==3){
-      this.stars= [1, 2, 3];
-    }else if((this.stars.length+ emtyStar)==4){
-      this.stars= [1, 2, 3, 4];
-    }else if((this.stars.length+ emtyStar)==5){
-      this.stars= [1, 2, 3, 4, 5];
-    }  
-  }
 
   setStars(chocolate: any):void{
-    if(chocolate.myGrade==1){
-      this.stars= [1];
-      this.emptyStars= [2, 3, 4, 5];
+    if(chocolate.myGrade==0){
+      chocolate.stars= [];
+      chocolate.emptyStars= [1, 2, 3, 4, 5];
+    }else if(chocolate.myGrade==1){
+      chocolate.stars= [1];
+      chocolate.emptyStars= [2, 3, 4, 5];
     }else if(chocolate.myGrade==2){
-      this.stars= [1, 2];
-      this.emptyStars= [3, 4, 5];
+      chocolate.stars= [1, 2];
+      chocolate.emptyStars= [3, 4, 5];
     }else if(chocolate.myGrade==3){
-      this.stars= [1, 2, 3];
-      this.emptyStars= [4, 5];
+      chocolate.stars= [1, 2, 3];
+      chocolate.emptyStars= [4, 5];
     }else if(chocolate.myGrade==4){
-      this.stars= [1, 2, 3, 4];
-      this.emptyStars= [5];
+      chocolate.stars= [1, 2, 3, 4];
+      chocolate.emptyStars= [5];
     }else if(chocolate.myGrade==5){
-      this.stars= [1, 2, 3, 4, 5];
-      this.emptyStars= [];
+      chocolate.stars= [1, 2, 3, 4, 5];
+      chocolate.emptyStars= [];
     }
 
   }
+
+
+    chocolateDetails(chocolateName: string) {
+      
+    const dialogConfig = new MatDialogConfig();
+    
+
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "auto";
+    dialogConfig.width = "600px";
+    dialogConfig.disableClose = true;
+
+    const modalDialog = this.dialog.open(ChocolateDetailsComponent, dialogConfig);
+    modalDialog.disableClose =true
+    modalDialog.componentInstance.chocolateName = chocolateName;
+
+  }
+
+
+  public undisable(){
+    this.disable = false;
+  }
+
 
 }

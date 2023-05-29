@@ -62,6 +62,8 @@ export class UserService {
     return this.http.put(this.apiHost + 'users/remove/disliked/'+ ingredient, {headers: this.headers});
   }
 
+
+  
   
 
 }
