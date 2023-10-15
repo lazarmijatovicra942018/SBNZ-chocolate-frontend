@@ -1,0 +1,100 @@
+body {
+  background-color: #f2f2f2;
+ /* font-family: Arial, sans-serif;*/
+}
+
+/*
+.container {
+  width: 50%;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 3px;
+  border: 2px solid slategray;
+  background-color: white;
+  padding: 20px;
+  
+}
+*/
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+label {
+  display: inline-block;
+  font-weight: bold;
+  width: 100px; /* Adjust the width as needed */
+  margin-right: 10px;
+  color: #555;
+}
+
+span {
+  display: inline-block;
+  padding: 5px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: #333;
+  width: 150px; /* Adjust the width as needed */
+}
+
+button {
+  color: white;
+  background-color: rgb(4, 92, 113);
+  border-radius: 10px;
+  margin: 0 auto; /* This centers the button horizontally */
+  margin-top: 10px; /* This centers the button horizontally */
+  display: block; /* This makes the button a block element */
+}
+
+
+input {
+  display: inline-block;
+  padding: 5px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: #333;
+  width: 150px; /* Adjust the width as needed */
+}
+
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-left:70px;
+  margin-right:70px;
+}
+
+.button-container button {
+  width: 80px; /* Adjust the width as needed */
+  padding: 2px; /* Adjust the padding as needed */
+  font-size: 14px; /* Adjust the font size as needed */
+}
+
+.container {
+  width: 50%;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 3px;
+  border: 2px solid slategray;
+  background-color: white;
+  padding: 20px;
+  position: relative;
+}
+
+.header-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+
+

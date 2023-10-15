@@ -21,7 +21,7 @@ export class ChocolateDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      this.chocolateService.getChocolateByName(this.chocolateName).subscribe(res => {
+      this.chocolateService.getChocolateByNameWithAmount(this.chocolateName,0).subscribe(res => {
               this.chocolate = res;
               console.log(res);
               
@@ -32,16 +32,10 @@ export class ChocolateDetailsComponent implements OnInit {
                   this.chocolate.allIngredients = ingredient
                 }
               });
-
-      });
-      
+      });      
   });
 
-    
-
   }
-
-
   public close() {
     this.dialog.closeAll();
   }

@@ -1,1 +1,58 @@
-<p>add-chocolate works!</p>
+<body class="background-image">
+    <form class="container">
+        <h2>New chocolate :</h2>
+         
+        <mat-form-field class="example-full-width" style="color: white;">
+          <input matInput placeholder="Name"   [(ngModel)]="chocolate.name">
+        </mat-form-field><br>
+
+        <mat-form-field class="example-full-width" style="color: white;">
+          <input matInput placeholder="Manufacturer"   [(ngModel)]="chocolate.name">
+        </mat-form-field><br>
+
+        <mat-form-field class="example-full-width" style="color: white;">
+          <input matInput placeholder="Price"   [(ngModel)]="chocolate.name">
+        </mat-form-field><br>
+        
+        <mat-form-field class="example-full-width" style="color: white;">
+          <input matInput placeholder="Weight in grams"   [(ngModel)]="chocolate.name">
+        </mat-form-field><br>
+        
+        <mat-form-field class="example-full-width" style="color: white;">
+          <input matInput placeholder="Sugar content in grams"   [(ngModel)]="chocolate.name">
+        </mat-form-field><br>
+
+        <mat-form-field class="example-full-width" style="color: white;">
+          <input matInput placeholder="Calories"   [(ngModel)]="chocolate.name">
+        </mat-form-field><br>
+
+        
+        <mat-form-field class="example-full-width" style="color: white;">
+          <mat-select placeholder="Nutri score" [(ngModel)]="chocolate.nutriScore">
+            <mat-option value="1">1</mat-option>
+            <mat-option value="2">2</mat-option>
+            <mat-option value="3">3</mat-option>
+            <mat-option value="4">4</mat-option>
+            <mat-option value="5">5</mat-option>
+          </mat-select>
+        </mat-form-field><br>
+
+        <mat-form-field class="example-full-width" style="color: white;">
+          <input matInput placeholder="New ingredient" [(ngModel)]="newIngredient" (keydown.enter)="addNewIngredient()">
+        </mat-form-field><br>
+        
+        <div class="checkbox-container">
+          <ul>
+            <li *ngFor="let item of allInredientsList">
+              <input type="checkbox" [(ngModel)]="item.checked" (change)="onIngridientsckboxChange(item)" id="{{ 'checkbox_' + item.value }}" name="{{ 'checkbox_' + item.value }}">
+              <label for="{{ 'checkbox_' + item.value }}">{{ item.value }}</label>
+            </li>
+          </ul>
+        </div>
+        <button mat-stroked-button (click)="addChocolate()"> 
+            Submit
+        </button>
+        
+    
+    </form> 
+</body>

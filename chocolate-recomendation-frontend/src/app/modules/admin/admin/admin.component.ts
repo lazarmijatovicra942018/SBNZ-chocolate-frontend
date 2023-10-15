@@ -21,6 +21,6 @@ export class AdminComponent implements OnInit {
   }
 
   public home(){
-    this.router.navigate(['add/chocolate']);
+    this.router.navigate(['chocolates']);
   }
 }

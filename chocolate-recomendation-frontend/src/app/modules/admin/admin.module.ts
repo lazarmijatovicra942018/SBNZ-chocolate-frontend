@@ -17,11 +17,16 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { AddChocolateComponent } from './add-chocolate/add-chocolate.component';
+import { ChocolatesComponent } from './chocolates/chocolates.component';
+import { ChocolateDetailsComponent } from './chocolate-details/chocolate-details.component';
+
 
 const routes: Routes = [
   {
     path: '', component: AdminComponent, children: [
       { path: 'add/chocolate', component: AddChocolateComponent },
+      { path: 'chocolates', component: ChocolatesComponent },
+      
       //{ path: 'register', component: RegisterComponent},
       //{ path: 'login', component: LoginComponent},
       //{ path: 'unauthorized', component: UnauthorComponent},
@@ -33,7 +38,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AdminComponent,
-    AddChocolateComponent
+    AddChocolateComponent,
+    ChocolatesComponent,
+    ChocolateDetailsComponent,
   ],
   imports: [
     CommonModule,

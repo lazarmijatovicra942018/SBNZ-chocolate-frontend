@@ -9,20 +9,22 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ChocolateDetailsComponent } from '../chocolate-details/chocolate-details.component';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-chocolates',
+  templateUrl: './chocolates.component.html',
+  styleUrls: ['./chocolates.component.css']
 })
-export class HomeComponent implements OnInit {
+export class ChocolatesComponent implements OnInit {
+
   public dataSource = new MatTableDataSource<Chocolate>();
   public displayedColumns = ['name', 'manufacturer', 'price', 'ingridients' , 'grade'];
   constructor( public dialog: MatDialog , private chocolateService: ChocolateService, private router: Router) { }
+
 
   ngOnInit(): void {
     this.loadChocolates()
   }
   public loadChocolates(): void {
-    this.chocolateService.getChocolatesUnregistered().subscribe(res => {
+    this.chocolateService.getChocolates().subscribe(res => {
       this.dataSource.data = res;
       for (const c of this.dataSource.data) {
         c.ingredients.forEach((ingredient: string) => {
@@ -69,5 +71,5 @@ export class HomeComponent implements OnInit {
         grade -=1;}
     const emptyStars = 5 - Math.ceil(grade);
     return Array(emptyStars).fill(0);
-  }
+  }  
 }

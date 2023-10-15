@@ -15,34 +15,18 @@ export class ChocolateDetailsComponent implements OnInit {
 
   public chocolateName: any;
   public chocolate: Chocolate = new Chocolate();
-  public amount : number = 0;
+  public discountAmount : number = 0;
 
   constructor(private route: ActivatedRoute,private router: Router, private chocolateService: ChocolateService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.loadChocolateWithAmount();
-      /*
-    this.route.params.subscribe((params: Params) => {
-      this.chocolateService.getChocolateByName(this.chocolateName).subscribe(res => {
-              this.chocolate = res;
-              
-              this.chocolate.ingredients.forEach((ingredient: string) => {
-                if (this.chocolate.allIngredients != null) {
-                  this.chocolate.allIngredients = this.chocolate.allIngredients + ' , ' + ingredient
-                } else {
-                  this.chocolate.allIngredients = ingredient
-                }
-              });
-
-      });
-      
-  });*/
 
   }
 
 
   public loadChocolateWithAmount(){
-    this.chocolateService.getChocolateByNameWithAmount(this.chocolateName,this.amount).subscribe(res => {
+    this.chocolateService.getChocolateByNameWithAmount(this.chocolateName, 0).subscribe(res => {
       this.chocolate = res;
       
       this.chocolate.ingredients.forEach((ingredient: string) => {
@@ -67,27 +51,32 @@ export class ChocolateDetailsComponent implements OnInit {
     this.dialog.closeAll();
   }
 
-  public getDiscount(event: any) {
+  public ammountOfNewDiscount(event: any) {
     if (event.target.value < 0) {
-      alert("Amount must be positive number !")
+      alert("Discount amount must be positive number !")
       event.target.value = null
     } else {
       if(!event.target.value){
-        this.amount = 0;
+        this.discountAmount = 0;
       }else{
-      this.amount = event.target.value;
+      this.discountAmount = event.target.value;
       }
-      this.loadChocolateWithAmount();
+      
     }
   }
   
-  purchaseChocolate(){
-    if(this.amount ==0){
-      alert("Amount must be grater than zero !")
+  addNewRule(){
+    if(this.discountAmount ==0){
+      alert("Discount amount must be grater than zero !")
     }else{
-    this.chocolateService.purchaseChocolate(this.chocolate).subscribe();
-    this.close()
+    this.chocolateService.addRule(this.chocolateName, this.discountAmount).subscribe();
+    this.discountAmount = 0;
+    alert("New discount successfully added !")
     }
   }
+
+
+  
+
 
 }

@@ -43,34 +43,18 @@
         <div class="form-group">
           <label for="grade">Grade:</label>
           <span id="grade" class="field-value">{{ chocolate.grade }}</span>
-        </div>
-
-        <div class="form-group">
-          <label for="grade">My grade:</label>
-          <span id="grade" class="field-value">{{ chocolate.myGrade }}</span>
-        </div>
-  
-  
+        </div>  
         <div class="form-group">
           <label for="price">Price:</label>
-          <span id="price" class="field-value">{{ chocolate.price*(100-chocolate.discount)/100 }}</span>
-        </div>
-          <div class="form-group">
-          <label for="price">Price for all:</label>
-          <span id="price" class="field-value">{{ chocolate.amount*chocolate.price*(100-chocolate.discount)/100 }}</span>
-        
-        </div>
-            <div class="form-group">
-          <label for="manufacturer">Discount:</label>
-          <span id="manufacturer" class="field-value">{{ chocolate.discount }}</span>
-        </div>
+          <span id="price" class="field-value">{{ chocolate.price }}</span>
+        </div>        
         <div class="form-group">
-          <label for="amount">Amount:</label>
-          <input  id="amount" class="field-value" type="number" (keyup)="getDiscount($event)" />
+          <label for="newDiscount">New discount:</label>
+          <input  id="newDiscount" class="field-value" type="number" (keyup)="ammountOfNewDiscount($event)" />
         </div>
       </div>
       <div class="button-container">
-        <button mat-button mat-dialog-close cdkFocusInitial (click)="purchaseChocolate()">Buy</button>
+        <button mat-button mat-dialog-close cdkFocusInitial (click)="addNewRule()">Add</button>
         <button mat-button mat-dialog-close (click)="close()">Cancel</button>
       </div>
     </form>

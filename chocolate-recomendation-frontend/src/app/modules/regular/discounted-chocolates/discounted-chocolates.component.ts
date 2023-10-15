@@ -17,20 +17,20 @@ import { ChocolateDetailsComponent } from '../chocolate-details/chocolate-detail
 export class DiscountedChocolatesComponent implements OnInit {
 
   public dataSource = new MatTableDataSource<Chocolate>();
-  public displayedColumns = ['name', 'manufacturer', 'price', 'priceAll', 'discount', 'ammount', 'ingredients' , 'grade', 'mygrade'];
+  public displayedColumns = ['name', 'manufacturer', 'price', 'priceAll', 'discount', 'amount', 'ingredients' , 'grade', 'mygrade'];
   public disable: boolean = false;
   public amount : number = 0;
 
   constructor( public dialog: MatDialog ,private chocolateService: ChocolateService, private router: Router) { }
 
   ngOnInit(): void {
-    this.loadChocolatesWithAmmount(this.amount);
+    this.loadChocolatesWithAmount(this.amount);
   }
 
  
 
-  public loadChocolatesWithAmmount(ammount: number): void {
-    this.chocolateService.getDiscountedChocolatesWithAmmount(ammount).subscribe(res => {
+  public loadChocolatesWithAmount(amount: number): void {
+    this.chocolateService.getDiscountedChocolatesWithAmount(amount).subscribe(res => {
       this.dataSource.data = res;
 
       for (const c of this.dataSource.data) {
@@ -49,7 +49,7 @@ export class DiscountedChocolatesComponent implements OnInit {
   public getDiscount(event: any) {
     
     if (event.target.value < 0) {
-      alert("Ammount must be positive number")
+      alert("Amount must be positive number")
       event.target.value = null
     } else {
       if(!event.target.value){
@@ -57,7 +57,7 @@ export class DiscountedChocolatesComponent implements OnInit {
       }else{
       this.amount = event.target.value;
       }
-      this.loadChocolatesWithAmmount(this.amount);
+      this.loadChocolatesWithAmount(this.amount);
     }
   }
 
@@ -73,7 +73,9 @@ export class DiscountedChocolatesComponent implements OnInit {
   }
   
   getEmptyStars(grade: number): number[] {
-    if(grade%1<0.25  && grade <0.25 && grade>0){ grade -=1;}
+    if(grade%1<=0.25  && grade%1>0 && grade > 1
+      ){ 
+        grade -=1;}
     const emptyStars = 5 - Math.ceil(grade);
     return Array(emptyStars).fill(0);
   }
@@ -82,7 +84,7 @@ export class DiscountedChocolatesComponent implements OnInit {
     this.disable = true;
     chocolate.myGrade = star;
     this.chocolateService.gradeChocolate(chocolate).subscribe(res =>
-    this.loadChocolatesWithAmmount(this.amount)
+    this.loadChocolatesWithAmount(this.amount)
     );
    // this.setStars(chocolate)
     
